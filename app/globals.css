@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b100f;
+  --color-deep: #0d1412;
+  --color-panel: #111917;
+  --color-panel-2: #16211e;
+  --color-line: #1f2b28;
+  --color-line-2: #2a3a35;
+  --color-text: #e6edea;
+  --color-soft: #cad5d0;
+  --color-muted: #b4c2bc;
+  --color-dim: #9aaba4;
+  --color-signal: #4ade9b;
+  --color-signal-ink: #06231a;
+  --color-packet: #f5b841;
+
+  --font-display: "Space Grotesk Variable", system-ui, sans-serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  background: var(--color-ink);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-signal-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Faint grid behind the hero, like a circuit board */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(74, 222, 155, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(74, 222, 155, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 75%);
+}
+
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 155, 0.45); }
+  50% { box-shadow: 0 0 0 8px rgba(74, 222, 155, 0); }
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.live-dot { animation: pulse-ring 2s ease-out infinite; }
+.caret { animation: blink 1s step-end infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .live-dot, .caret { animation: none; }
+}
