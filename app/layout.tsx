@@ -9,7 +9,7 @@ const description =
   "Full-stack engineer in Germany building real-time systems end to end: firmware, data pipelines, AWS cloud and the dashboards people use every day.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://muhammadanas.vercel.app"),
+  metadataBase: new URL("https://muhammadanas14.vercel.app"),
   title,
   description,
   authors: [{ name: "Muhammad Anas" }],
